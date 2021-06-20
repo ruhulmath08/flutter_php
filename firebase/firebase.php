@@ -10,7 +10,7 @@ class Firebase {
     public function send($to, $message) {
         $fields = array(
             'to' => $to,
-            'data' => $message,
+            'notification' => $message,
         );
         return $this->sendPushNotification($fields);
     }
@@ -19,7 +19,7 @@ class Firebase {
     public function sendToTopic($to, $message) {
         $fields = array(
             'to' => '/topics/' . $to,
-            'data' => $message,
+            'notification' => $message,
         );
         return $this->sendPushNotification($fields);
     }
@@ -28,7 +28,7 @@ class Firebase {
     public function sendMultiple($registration_ids, $message) {
         $fields = array(
             'to' => $registration_ids,
-            'data' => $message,
+            'notification' => $message,
         );
  
         return $this->sendPushNotification($fields);
@@ -37,9 +37,8 @@ class Firebase {
     // function makes curl request to firebase servers
     private function sendPushNotification($fields) {
          
-        //require_once __DIR__ . '/config.php';
-        define('FIREBASE_API_KEY', 'AAAAq0hPmho:APA91bGcUo-fKoUTkN1-tLHisvNAaHWNJmL2ZK_uiWDEgnCvEHmQFnxeas_KQ0yZaFB_8ze2SNhDYwZ8AEKO_iVW5x74OkV6wTByv7B4trqsMJuwfz8dX9jlFdqyWo-ADg8hMNC99Rxd');
- 
+        require_once __DIR__ . '/config.php';
+     
         // Set POST variables
         $url = 'https://fcm.googleapis.com/fcm/send';
  

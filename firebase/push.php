@@ -44,12 +44,12 @@ class Push {
  
     public function getPush() {
         $res = array();
-        $res['notification']['title'] = $this->title;
-        $res['notification']['is_background'] = $this->is_background;
-        $res['notification']['message'] = $this->message;
-        $res['notification']['image'] = $this->image;
-        $res['notification']['payload'] = $this->data;
-        $res['notification']['timestamp'] = date('Y-m-d G:i:s');
+        $res['data']['title'] = $this->title;
+        $res['data']['is_background'] = $this->is_background;
+        $res['data']['message'] = $this->message;
+        $res['data']['image'] = $this->image;
+        $res['data']['payload'] = $this->data;
+        $res['data']['timestamp'] = date('Y-m-d G:i:s');
         return $res;
     }
  
